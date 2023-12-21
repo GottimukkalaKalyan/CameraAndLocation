@@ -5,7 +5,7 @@ import "./App.css"
 
 function App (props) {
   const [imageUrl,setImageUrl] = useState([])
-  const [imageId,setImageId] = useState(parseInt(1))
+  const [imageId,setImageId] = useState(parseInt(0))
 
   const [ipAddress,setIpAddress] = useState("")
   const [locationInfo,setLocationInfo] = useState([])
@@ -86,32 +86,33 @@ function App (props) {
 
   return (
     <div className='image-container'>
-      <Camera
-        onTakePhoto = { (dataUri) => { handleTakePhoto(dataUri); } }
-        onTakePhotoAnimationDone = { (dataUri) => { handleTakePhotoAnimationDone(dataUri); } }
-        onCameraError = { (error) => { handleCameraError(error); } }
-        idealFacingMode = {FACING_MODES.ENVIRONMENT}
-        idealResolution = {{width: 200, height: 100}}
-        imageType = {IMAGE_TYPES.JPG}
-        imageCompression = {0.97}
-        isMaxResolution = {true}
-        isImageMirror = {false}
-        isSilentMode = {false}
-        isDisplayStartCameraError = {true}
-        isFullscreen = {false}
-        sizeFactor = {1}
-        onCameraStart = { (stream) => { handleCameraStart(stream); } }
-        onCameraStop = { () => { handleCameraStop(); } }
-      />
+      <div className='camera-container'>
+        <Camera
+          onTakePhoto = { (dataUri) => { handleTakePhoto(dataUri); } }
+          onTakePhotoAnimationDone = { (dataUri) => { handleTakePhotoAnimationDone(dataUri); } }
+          onCameraError = { (error) => { handleCameraError(error); } }
+          idealFacingMode = {FACING_MODES.ENVIRONMENT}
+          // idealResolution = {{width: 400, height: 100}}
+          imageType = {IMAGE_TYPES.JPG}
+          imageCompression = {0.97}
+          isMaxResolution = {true}
+          isImageMirror = {false}
+          isSilentMode = {false}
+          isDisplayStartCameraError = {true}
+          isFullscreen = {false}
+          sizeFactor = {1}
+          onCameraStart = { (stream) => { handleCameraStart(stream); } }
+          onCameraStop = { () => { handleCameraStop(); } }
+        />
+      </div>
       <ul className='ul-list'>
-        <li>Images</li>
         {MainImageList.map(eachOne => (
-          <li key={eachOne.id}>
+          <li key={eachOne.id} className='image-item'>
             <div>
               <h5>Image {eachOne.id}</h5>
               <img src={eachOne.imageLink} alt='kalyan' className='selfie-image'/>
             </div>
-            <div className=''>
+            <div className='location-container'>
               <h5>Location Info</h5>
               <p className='image-details-para'>Country : {eachOne.country}</p>
               <p className='image-details-para'>State : {eachOne.regionName}</p>

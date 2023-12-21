@@ -1,22 +1,37 @@
-.selfie-image{
-  width: 500px;
+.camera-container{
+  width: 100%;
 }
 .ul-list{
   border: 2px solid red;
-  width: 90vw;
-  height: 50vh;
-  overflow-x: scroll;
-  padding: 10px;
+  height: 60vh;
+  padding: 0px;
+  overflow: scroll;
 }
 .image-container{
-  width: 100vw;
   border: 2px solid green;
-  min-height: 100vh;
   padding: 20px;
+  min-height: 100vh;
 }
-li{
+.image-item{
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
+  /* width: 100%; */
   padding: 10px;
-  gap: 10px;
+  background-color: lightblue;
+  margin-bottom: 20px;
+}
+.selfie-image{
+  width: 100%;
+  max-width: 450px;
+}
+.location-container{
+  margin-left: 0px;
+  font-weight: bold;
+}
+@media screen and (min-width:798px) {
+  .location-container{
+    margin-left: 20px;
+    font-weight: bold;
+  }
 }
