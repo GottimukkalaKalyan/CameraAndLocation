@@ -1,0 +1,22 @@
+.selfie-image{
+  width: 500px;
+}
+.ul-list{
+  border: 2px solid red;
+  width: 90vw;
+  height: 50vh;
+  overflow-x: scroll;
+  padding: 10px;
+}
+.image-container{
+  width: 100vw;
+  border: 2px solid green;
+  min-height: 100vh;
+  padding: 20px;
+}
+li{
+  list-style-type: none;
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
